@@ -1,0 +1,600 @@
+/* ═══════════════════════════════════════════════════════════════════
+   dreamyalien.com — styles.css
+   Theme: dark editorial · refined minimal · photographic sensibility
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Custom properties ───────────────────────────────────────────── */
+:root {
+  /* Core palette */
+  --bg:            #09100e;   /* near-black, faint cool-green undertone */
+  --bg-nav:        rgba(9, 16, 14, 0.88);
+  --surface:       #111916;
+  --surface-2:     #182018;
+
+  /* Text */
+  --text:          #e6e1d8;   /* warm off-white */
+  --text-sub:      #8d8a84;   /* secondary — passes WCAG AA on --bg */
+  --text-dim:      #343d3a;   /* very muted — dividers, de-emphasis */
+
+  /* Accent: warm bronze/amber — editorial warmth */
+  --accent:        #b5895a;
+  --accent-hover:  #c99e70;
+
+  /* Structure */
+  --border:        #1a211f;
+  --border-light:  #232c29;
+
+  /* Typography */
+  --font-display:  'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                   Helvetica, Arial, sans-serif;
+
+  /* Layout */
+  --max-w:         1220px;
+  --gutter:        clamp(1.25rem, 4vw, 2.75rem);
+  --section-gap:   clamp(5rem, 10vw, 8rem);
+}
+
+/* ── Reset ───────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.74;
+  font-size: clamp(0.9375rem, 0.875rem + 0.35vw, 1.0625rem);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Subtle grain overlay ────────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  /* SVG feTurbulence noise — renders sharp, no image file needed */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+  opacity: 0.038;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── Skip link ───────────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -200%;
+  left: 1rem;
+  padding: 0.5rem 1.25rem;
+  background: var(--accent);
+  color: #0a0d0c;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0 0 3px 3px;
+  z-index: 10000;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Focus ring ──────────────────────────────────────────────────── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Container ───────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   NAVIGATION
+   ══════════════════════════════════════════════════════════════════ */
+.site-header {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 200;
+  padding-block: 1.375rem;
+  /* transparent until scrolled — handled by .is-scrolled class via JS */
+  transition: background 0.35s ease, padding 0.35s ease, border-color 0.35s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.site-header.is-scrolled {
+  background: var(--bg-nav);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding-block: 1rem;
+  border-bottom-color: var(--border);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.nav-wordmark {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  letter-spacing: 0.015em;
+  color: var(--text);
+  transition: color 0.2s;
+}
+.nav-wordmark:hover { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-sub);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+
+.nav-links .nav-cta {
+  color: var(--accent);
+}
+.nav-links .nav-cta:hover { color: var(--accent-hover); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   BUTTONS
+   ══════════════════════════════════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.8125rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #08100e;
+  border: 1px solid var(--accent);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-light);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SECTION TYPOGRAPHY
+   ══════════════════════════════════════════════════════════════════ */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.875rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 2.8vw, 2.625rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 1.375rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   HERO
+   Layout: two-column asymmetric on desktop (text left, photo right).
+   Stacks vertically on mobile (photo first, then text).
+   ══════════════════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 54fr 46fr;
+  min-height: 100svh;
+  /* Fallback for browsers without svh support */
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* ── Text column ─────────────────────────────────────────────────── */
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Left edge aligns with .container content at wide viewports */
+  padding-inline-start: max(var(--gutter), calc((100vw - var(--max-w)) / 2 + var(--gutter)));
+  padding-inline-end: clamp(2rem, 5vw, 5.5rem);
+  padding-block: clamp(6rem, 12vh, 9rem);
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.375rem;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3.75rem, 7vw, 6.75rem);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.025em;
+  margin-bottom: 1.625rem;
+}
+
+/* Slight typographic offset — last name indented for editorial tension */
+.name-last {
+  padding-inline-start: 0.12em;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-sub);
+}
+
+.hero-tagline {
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  font-style: italic;
+  color: var(--text-sub);
+  max-width: 40ch;
+  line-height: 1.62;
+  margin-bottom: 2.75rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+/* ── Photo column ────────────────────────────────────────────────── */
+.hero-photo-wrap {
+  position: relative;
+  overflow: hidden;
+  /* Dark gradient shows when photo hasn't been supplied yet */
+  background: linear-gradient(155deg, var(--surface-2) 0%, var(--bg) 100%);
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;  /* keeps face in frame on varied aspect ratios */
+}
+
+/* Subtle gradient over the photo on the left edge — blends into text column */
+.hero-photo-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--bg) 0%, transparent 18%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── Scroll cue ──────────────────────────────────────────────────── */
+.hero-scroll-cue {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1.75rem;
+}
+
+.scroll-line {
+  display: block;
+  width: 1px;
+  height: 2.5rem;
+  background: linear-gradient(to bottom, var(--accent) 0%, transparent 100%);
+  animation: cue-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes cue-pulse {
+  0%, 100% { opacity: 0.35; transform: scaleY(0.85); }
+  55%       { opacity: 0.9;  transform: scaleY(1.1);  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ABOUT
+   ══════════════════════════════════════════════════════════════════ */
+.about {
+  padding-block: var(--section-gap);
+  border-top: 1px solid var(--border);
+}
+
+.about-body {
+  max-width: 66ch;
+  font-size: clamp(0.9375rem, 0.9rem + 0.3vw, 1.0625rem);
+  line-height: 1.82;
+  color: var(--text);
+}
+
+.about-body p + p {
+  margin-top: 1.3em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PHOTOGRAPHY
+   ══════════════════════════════════════════════════════════════════ */
+.photography {
+  padding-block: var(--section-gap);
+  border-top: 1px solid var(--border);
+}
+
+.photography-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.photography-desc {
+  color: var(--text-sub);
+  max-width: 44ch;
+  line-height: 1.77;
+  margin-bottom: 2rem;
+}
+
+/* ── Teaser images ───────────────────────────────────────────────── */
+.photography-teasers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.625rem;
+}
+
+.teaser-wrap {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  aspect-ratio: 3 / 4;
+  background: var(--surface-2);
+}
+
+.teaser-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.teaser-wrap:hover .teaser-img {
+  transform: scale(1.05);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════════════════════ */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding-block: 3rem 2.75rem;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1.5rem clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.footer-wordmark {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.footer-desc {
+  font-size: 0.8125rem;
+  color: var(--text-sub);
+  line-height: 1.5;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-nav a {
+  font-size: 0.8125rem;
+  color: var(--text-sub);
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+.footer-nav a:hover { color: var(--text); }
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+  text-align: right;
+  padding-top: 0.2rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   Hero elements fade up on page load. Skipped entirely when the user
+   has prefers-reduced-motion enabled.
+   ══════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: no-preference) {
+  .js-fade-up {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    animation: fade-up 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  }
+}
+
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-line {
+    animation: none;
+    opacity: 0.4;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Tablet / narrow desktop ─────────────────────────────────────── */
+@media (max-width: 980px) {
+  /* Hero: stack vertically */
+  .hero-inner {
+    grid-template-columns: 1fr;
+    min-height: unset;
+  }
+
+  /* Photo moves above text on mobile */
+  .hero-photo-wrap {
+    order: -1;
+    height: min(55vw, 480px);
+    min-height: 240px;
+  }
+
+  /* Remove the left-edge fade (only needed in two-column layout) */
+  .hero-photo-wrap::before {
+    display: none;
+  }
+
+  .hero-text {
+    padding-inline: var(--gutter);
+    padding-block: 3rem 4rem;
+    justify-content: flex-start;
+  }
+
+  /* Photography: stack text + teasers */
+  .photography-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* Keep teasers on tablet */
+  .photography-teasers {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── Mobile ──────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .hero-name {
+    font-size: clamp(3.25rem, 14vw, 4.25rem);
+  }
+
+  .hero-photo-wrap {
+    height: 72vw;
+  }
+
+  /* Hide third teaser on small screens */
+  .photography-teasers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .teaser-wrap:nth-child(3) {
+    display: none;
+  }
+
+  /* Footer: single column */
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .footer-copy {
+    text-align: left;
+  }
+
+  /* Simplify nav on small screens */
+  .nav-links {
+    gap: 1.25rem;
+  }
+  .nav-links a:first-child {
+    display: none;  /* hide "About" — page is short enough to scroll */
+  }
+}
+
+/* ── Very small ──────────────────────────────────────────────────── */
+@media (max-width: 380px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
