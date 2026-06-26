@@ -297,15 +297,6 @@ button:focus-visible {
   color: var(--text-sub);
 }
 
-.hero-tagline {
-  font-size: clamp(0.875rem, 1.1vw, 1rem);
-  font-style: italic;
-  color: var(--text-sub);
-  max-width: 40ch;
-  line-height: 1.62;
-  margin-bottom: 2.75rem;
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -366,6 +357,48 @@ button:focus-visible {
 .about {
   padding-block: var(--section-gap);
   border-top: 1px solid var(--border);
+}
+
+/* ── Facts strip — labeled credential rows under the heading ─────── */
+.about-facts {
+  max-width: 60ch;
+  margin-bottom: 2.5rem;
+}
+
+.about-facts .fact-row {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 0.25rem 1.5rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border);
+}
+.about-facts .fact-row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.about-facts dt {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-sub);
+  padding-top: 0.2em;
+}
+
+.about-facts dd {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.about-facts a {
+  color: var(--text);
+  border-bottom: 1px solid var(--text-dim);
+  transition: color 0.2s, border-color 0.2s;
+}
+.about-facts a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .about-body {
@@ -559,6 +592,12 @@ button:focus-visible {
 
   .hero-photo-wrap {
     height: 72vw;
+  }
+
+  /* Facts strip: label stacks above value */
+  .about-facts .fact-row {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
   }
 
   /* Hide third teaser on small screens */
