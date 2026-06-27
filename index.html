@@ -15,283 +15,172 @@
   <!-- PLACEHOLDER: og:image — recommended 1200×630px -->
   <!-- <meta property="og:image" content="https://dreamyalien.com/assets/og-image.jpg"> -->
 
-  <!-- Font: Playfair Display (display/headings only — body uses system fonts) -->
+  <!-- Fonts: IBM Plex Mono (display / labels) + IBM Plex Sans (body prose) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Skip link for keyboard/screen-reader users -->
-  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Skip link for keyboard / screen-reader users -->
+  <a class="skip-link" href="#top">Skip to content</a>
 
-  <!-- ════════════════════════════════════════════════════════════
-       NAVIGATION
-  ═══════════════════════════════════════════════════════════════ -->
-  <header class="site-header" role="banner">
-    <nav class="site-nav" aria-label="Main navigation">
-      <a class="nav-wordmark" href="#hero" aria-label="Daniel Mayer — back to top">
-        Daniel Mayer
-      </a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#photography">Photography</a>
-        <!-- PLACEHOLDER: replace href with your LinkedIn URL -->
-        <a href="https://www.linkedin.com/in/danieladammayer/" class="nav-cta" target="_blank" rel="noopener noreferrer"
-           aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a>
-      </div>
-    </nav>
-  </header>
+  <div class="shell">
 
-  <main id="main">
+    <!-- ════════════════════════════════════════════════════════════
+         NAV
+    ═══════════════════════════════════════════════════════════════ -->
+    <header class="site-header" role="banner">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="nav-brand" href="#top" aria-label="Daniel Mayer — back to top">Daniel&nbsp;Mayer</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#photography">Photography</a>
+          <a class="is-accent" href="https://www.linkedin.com/in/danieladammayer/"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="LinkedIn profile (opens in new tab)">LinkedIn&nbsp;↗</a>
+        </div>
+      </nav>
+    </header>
 
-    <!-- ════════════════════════════════════════════════════════
-         HERO
-    ═══════════════════════════════════════════════════════════ -->
-    <section class="hero" id="hero" aria-label="Introduction">
-      <div class="hero-inner">
+    <main id="top">
 
+      <!-- ══════════════════════════════════════════════════════════
+           HERO
+      ═════════════════════════════════════════════════════════════ -->
+      <section class="hero" aria-label="Introduction">
         <div class="hero-text">
-          <p class="hero-eyebrow" aria-hidden="true">
-            Cybersecurity Executive &middot; CISO &middot; Adviser &amp; Investor
+          <p class="eyebrow">01&nbsp;/&nbsp;Profile</p>
+          <h1 class="hero-name">Daniel<br>Mayer<span class="name-period">.</span></h1>
+          <p class="hero-tagline">
+            Cybersecurity&nbsp;Executive&nbsp;·&nbsp;CISO&nbsp;·&nbsp;Adviser&nbsp;·&nbsp;Investor<br>
+            Photographer
           </p>
-          <h1 class="hero-name">
-            <span class="name-first">Daniel</span>
-            <span class="name-last">Mayer</span>
-          </h1>
           <div class="hero-actions">
-            <!-- PLACEHOLDER: replace href with your LinkedIn URL -->
-            <a href="https://www.linkedin.com/in/danieladammayer/" class="btn btn-primary"
-               target="_blank" rel="noopener noreferrer">
-              Connect on LinkedIn
-            </a>
-            <a href="https://portfolio.dreamyalien.com/" class="btn btn-ghost"
-               target="_blank" rel="noopener noreferrer">
-              Photography portfolio&thinsp;&#8594;
-            </a>
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/danieladammayer/"
+               target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
+            <a class="btn btn-secondary" href="https://portfolio.dreamyalien.com/"
+               target="_blank" rel="noopener noreferrer">Portfolio →</a>
           </div>
         </div>
 
-        <!-- PLACEHOLDER: drop assets/daniel.jpg into the assets/ folder.
-             The section shows a dark backdrop until the image is supplied. -->
-        <div class="hero-photo-wrap" aria-hidden="true">
-          <img
-            src="assets/daniel.jpg"
-            alt="Daniel Mayer"
-            class="hero-photo"
-            loading="eager"
-            decoding="async"
-            width="1024"
-            height="683"
-          >
+        <aside class="glance-card" aria-label="At a glance">
+          <p class="glance-head">At a glance</p>
+          <div class="glance-body">
+            <div class="glance-field">
+              <p class="glance-label">Role</p>
+              <p class="glance-value">CISO, <a href="https://www.morningstar.com" target="_blank" rel="noopener noreferrer">Morningstar</a></p>
+            </div>
+            <div class="glance-field">
+              <p class="glance-label">Startups</p>
+              <p class="glance-value">Adviser, <a href="https://www.offensai.com/" target="_blank" rel="noopener noreferrer">OFFENSAI</a><br>Investor, <a href="https://www.svci.io/" target="_blank" rel="noopener noreferrer">SVCI</a></p>
+            </div>
+            <div class="glance-field">
+              <p class="glance-label">Previously</p>
+              <p class="glance-value">NCC Group · Matasano Security</p>
+            </div>
+            <div class="glance-field glance-field--divided">
+              <p class="glance-label">Recognition</p>
+              <p class="glance-value"><a href="https://orbie.org/chicagociso/2025" target="_blank" rel="noopener noreferrer">2025 ChicagoCISO ORBIE Award</a></p>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+           ABOUT
+      ═════════════════════════════════════════════════════════════ -->
+      <section class="about" id="about" aria-labelledby="about-eyebrow">
+        <h2 class="eyebrow about-eyebrow" id="about-eyebrow">02&nbsp;/&nbsp;Who I am</h2>
+        <div class="about-grid">
+          <div class="about-media">
+            <div class="portrait-frame">
+              <img class="portrait" src="assets/portrait.png" alt="Daniel Mayer"
+                   width="1024" height="683" loading="lazy" decoding="async">
+            </div>
+            <div class="meta-list">
+              <div class="meta-field">
+                <p class="meta-label">Focus</p>
+                <p class="meta-value">Security leadership · Risk · Responsible AI</p>
+              </div>
+              <div class="meta-field">
+                <p class="meta-label">Based</p>
+                <p class="meta-value">Chicago, Illinois</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-prose">
+            <p class="lead">I&rsquo;m a cybersecurity executive and CISO who leads through trust and partnership. I believe security works best when it enables the business, and much of my work is translating risk into clear terms that leaders can act on. Drawn to innovative, forward-thinking companies and the people building them, I also advise and invest in early-stage security startups, where I most enjoy helping founders find their strategic direction. What energizes me is building strong teams and helping organizations adopt new technologies like AI responsibly, without slowing down.</p>
+            <p class="lead lead--dim">Outside of work, I&rsquo;m a dedicated photographer &mdash; a practice that shapes how I see: patient and observant, more inclined to watch and listen than to rush, and drawn to light, detail, and perspective.</p>
+          </div>
         </div>
+      </section>
 
-      </div>
-
-      <div class="hero-scroll-cue" aria-hidden="true">
-        <span class="scroll-line"></span>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════════════════
-         ABOUT
-    ═══════════════════════════════════════════════════════════ -->
-    <section class="about" id="about" aria-labelledby="about-heading">
-      <div class="container">
-        <p class="section-label">About</p>
-        <h2 id="about-heading" class="section-title">Who I am</h2>
-
-        <dl class="about-facts" aria-label="At a glance">
-          <div class="fact-row">
-            <dt>Role</dt>
-            <dd>Chief Information Security Officer,
-              <a href="https://www.morningstar.com" target="_blank" rel="noopener noreferrer">Morningstar</a>
-            </dd>
+      <!-- ══════════════════════════════════════════════════════════
+           PHOTOGRAPHY
+      ═════════════════════════════════════════════════════════════ -->
+      <section class="photography" id="photography" aria-labelledby="photo-title">
+        <div class="photo-head">
+          <div>
+            <p class="eyebrow photo-eyebrow">03&nbsp;/&nbsp;Beyond the screen</p>
+            <h2 class="photo-title" id="photo-title">Exploring the world through a lens</h2>
           </div>
-          <div class="fact-row">
-            <dt>Recognition</dt>
-            <dd><a href="https://orbie.org/chicagociso/2025" target="_blank" rel="noopener noreferrer">2025 ChicagoCISO ORBIE Award</a></dd>
-          </div>
-          <div class="fact-row">
-            <dt>Startups</dt>
-            <dd>Adviser, <a href="https://www.offensai.com/" target="_blank" rel="noopener noreferrer">OFFENSAI</a>
-              &middot; Investor, <a href="https://www.svci.io/" target="_blank" rel="noopener noreferrer">SVCI</a>
-            </dd>
-          </div>
-          <div class="fact-row">
-            <dt>Photography</dt>
-            <dd><a href="https://portfolio.dreamyalien.com/" target="_blank" rel="noopener noreferrer">View portfolio</a></dd>
-          </div>
-        </dl>
-
-        <div class="about-body">
-          <p>
-            I&rsquo;m a cybersecurity executive and CISO who leads through trust and
-            partnership. I believe security works best when it enables the business, and
-            much of my work is translating risk into clear terms that leaders can act on.
-            Drawn to innovative, forward-thinking companies and the people building them,
-            I also advise and invest in early-stage security startups, where I most enjoy
-            helping founders find their strategic direction. What energizes me is building
-            strong teams and helping organizations adopt new technologies like AI
-            responsibly, without slowing down.
-          </p>
-          <p>
-            Outside of work, I&rsquo;m a dedicated photographer &mdash; a practice that
-            shapes how I see: patient and observant, more inclined to watch and listen
-            than to rush, and drawn to light, detail, and perspective.
-          </p>
+          <a class="photo-portfolio-link" href="https://portfolio.dreamyalien.com/"
+             target="_blank" rel="noopener noreferrer">View portfolio →</a>
         </div>
+        <p class="photo-intro">Photography is how I explore my creative side and step away from screens and cybersecurity. I love to travel, and the camera is the perfect companion &mdash; pulling me toward wildlife, landscapes, architecture, and the character of new places.</p>
 
-      </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════════════════
-         PHOTOGRAPHY
-    ═══════════════════════════════════════════════════════════ -->
-    <section class="photography" id="photography" aria-labelledby="photo-heading">
-      <div class="container">
-        <div class="photography-inner">
-
-          <div class="photography-text">
-            <p class="section-label">Beyond the screen</p>
-            <h2 id="photo-heading" class="section-title">Exploring the world through a lens</h2>
-            <p class="photography-desc">
-              Photography is how I explore my creative side and step away from screens
-              and cybersecurity. I love to travel, and the camera is the perfect
-              companion &mdash; pulling me toward wildlife, landscapes, architecture,
-              and the character of new places.
-            </p>
-            <a href="https://portfolio.dreamyalien.com/" class="btn btn-primary"
-               target="_blank" rel="noopener noreferrer">
-              View portfolio&thinsp;&#8594;
-            </a>
-          </div>
-
-          <!-- ── OPTIONAL PHOTO TEASERS ────────────────────────────────
-               Drop assets/photo-1.jpg, photo-2.jpg, photo-3.jpg into
-               assets/ and the images will appear automatically.
-               If you are NOT supplying teaser images, remove the entire
-               <div class="photography-teasers">…</div> block below —
-               the section looks complete without it.
-          ────────────────────────────────────────────────────────────── -->
-          <div class="photography-teasers" aria-hidden="true">
-            <a href="https://portfolio.dreamyalien.com/" class="teaser-wrap"
-               tabindex="-1" target="_blank" rel="noopener noreferrer">
-              <img src="assets/photo-1.jpg" alt="" class="teaser-img"
-                   loading="lazy" width="480" height="640">
-            </a>
-            <a href="https://portfolio.dreamyalien.com/" class="teaser-wrap"
-               tabindex="-1" target="_blank" rel="noopener noreferrer">
-              <img src="assets/photo-2.jpg" alt="" class="teaser-img"
-                   loading="lazy" width="480" height="640">
-            </a>
-            <a href="https://portfolio.dreamyalien.com/" class="teaser-wrap"
-               tabindex="-1" target="_blank" rel="noopener noreferrer">
-              <img src="assets/photo-3.jpg" alt="" class="teaser-img"
-                   loading="lazy" width="480" height="640">
-            </a>
-          </div>
-          <!-- ── end optional photo teasers ── -->
-
+        <div class="photo-grid">
+          <figure class="photo-cell">
+            <img class="photo-img" src="assets/photo-1-penguin.jpg"
+                 alt="Gentoo penguin holding a pebble in its beak against a high-key white background"
+                 width="1200" height="1500" loading="lazy" decoding="async">
+            <figcaption class="photo-caption">Penguin / 01</figcaption>
+          </figure>
+          <figure class="photo-cell">
+            <img class="photo-img" src="assets/photo-2-lions.jpg"
+                 alt="Three lions walking together across the savanna"
+                 width="1200" height="1500" loading="lazy" decoding="async">
+            <figcaption class="photo-caption">Lions / 02</figcaption>
+          </figure>
+          <figure class="photo-cell">
+            <img class="photo-img" src="assets/photo-3-mountains.jpg"
+                 alt="Jagged alpine peaks and glacier in drifting cloud at golden light"
+                 width="1200" height="1500" loading="lazy" decoding="async">
+            <figcaption class="photo-caption">Mountains / 03</figcaption>
+          </figure>
         </div>
-      </div>
-    </section>
+      </section>
 
-  </main>
+    </main>
 
-  <!-- ════════════════════════════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════════════════════════════ -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-inner">
+    <!-- ════════════════════════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════════════════════════ -->
+    <footer class="site-footer" role="contentinfo">
+      <span class="footer-copy">© <span id="yr"></span> Daniel Mayer</span>
+      <span class="footer-links">
+        <a href="https://www.linkedin.com/in/danieladammayer/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://portfolio.dreamyalien.com/" target="_blank" rel="noopener noreferrer">Photography</a>
+        <!-- Email assembled by JS so the address never appears in the HTML source -->
+        <a id="contact-email" href="#" aria-label="Email Daniel Mayer">Email</a>
+      </span>
+    </footer>
 
-        <div class="footer-brand">
-          <span class="footer-wordmark">Daniel Mayer</span>
-          <p class="footer-desc">Cybersecurity Executive &middot; CISO &middot; Adviser &amp; Investor</p>
-        </div>
-
-        <nav class="footer-nav" aria-label="Footer links">
-          <!-- PLACEHOLDER: replace href with your LinkedIn URL -->
-          <a href="https://www.linkedin.com/in/danieladammayer/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://portfolio.dreamyalien.com/" target="_blank" rel="noopener noreferrer">Photography</a>
-
-          <!-- Email: assembled by JS to resist address scrapers.
-               To HIDE email from the page entirely, delete the next line. -->
-          <a id="contact-email" href="#" class="footer-email-link"
-             aria-label="Send email to Daniel Mayer">Email</a>
-
-          <!-- PLACEHOLDER: add up to two extra links here if desired, e.g.:
-               <a href="[URL]">Speaking</a>
-               <a href="[URL]">Writing</a>
-          -->
-        </nav>
-
-        <p class="footer-copy">
-          &copy; <span id="yr"></span> Daniel Mayer
-        </p>
-
-      </div>
-    </div>
-  </footer>
+  </div>
 
   <script>
-    // ── Year ────────────────────────────────────────────────────
+    // Year
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // ── Email — assembled in JS so the address never appears
-    //    in plain text in the HTML source (basic scraper resistance).
-    //    Remove this block if you do not want email shown at all. ──
+    // Email — assembled in JS so the address never appears in plain text
     (function () {
       var el = document.getElementById('contact-email');
       if (!el) return;
-      var addr = ['daniel', '@', 'dreamyalien', '.', 'com'].join('');
+      var addr = ['mayer', '@', 'cysec', '.', 'org'].join('');
       el.href = 'mailto:' + addr;
-      el.textContent = addr;
-    })();
-
-    // ── Nav: add backdrop when page is scrolled ─────────────────
-    (function () {
-      var hdr = document.querySelector('.site-header');
-      if (!hdr) return;
-      function onScroll() {
-        hdr.classList.toggle('is-scrolled', window.scrollY > 50);
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    })();
-
-    // ── Hero photo: hide broken-image placeholder if photo
-    //    hasn't been supplied yet ─────────────────────────────────
-    (function () {
-      var img = document.querySelector('.hero-photo');
-      if (!img) return;
-      img.addEventListener('error', function () {
-        this.style.display = 'none';
-      });
-    })();
-
-    // ── Photography teasers: hide any that fail to load ─────────
-    document.querySelectorAll('.teaser-img').forEach(function (img) {
-      img.addEventListener('error', function () {
-        var wrap = this.closest('.teaser-wrap');
-        if (wrap) wrap.style.display = 'none';
-      });
-    });
-
-    // ── Hero entrance animation (staggered fade + rise) ──────────
-    //    Skipped entirely when prefers-reduced-motion is set.
-    (function () {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var targets = document.querySelectorAll(
-        '.hero-eyebrow, .name-first, .name-last, .hero-actions, .hero-photo-wrap'
-      );
-      targets.forEach(function (el, i) {
-        el.style.animationDelay = (i * 0.09) + 's';
-        el.classList.add('js-fade-up');
-      });
     })();
   </script>
 
